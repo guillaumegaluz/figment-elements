@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { CopyBlock, dracula } from "react-code-blocks";
+import example from "./example.png";
 
 function CodeBlock({ code }) {
   return (
@@ -25,7 +26,7 @@ function App() {
       </Left>
       <Right>
         {/* replace me with the StakeWidget import */}
-        <img alt="example" src="/example.png" width={350} />
+        <img alt="example" src={example} width={350} />
       </Right>
     </Container>
   );
