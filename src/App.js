@@ -2,11 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import { CopyBlock, dracula } from "react-code-blocks";
 import { Staking, Dapp } from "figment-elements";
+import { Tabs } from "antd";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
+const markdown = `
+## Staking widget or full Dapp
+  You can either import:
+  - the **staking widget** (the UI component that handles the ETH stakign process), or
+  - the **full dapp**, which in addition to the staking widget includes:
+    - the staking activity (log of every staking and unstaking action
+    - a rewards tab with total stake, all time rewards and a chart of rewards over time
+
+## Options for importing
+`;
 
 function CodeBlock({ code }) {
   return (
     <CopyBlock
-      customStyle={{ marginTop: "20px", padding: "20px 0" }}
+      customStyle={{ marginTop: "20px", padding: "20px 0", fontSize: "12px" }}
       text={code}
       language={"ts"}
       theme={dracula}
@@ -47,18 +61,39 @@ function App() {
     };
   }, []);
 
+  const items = [
+    {
+      key: "1",
+      label: "React",
+      children: (
+        <>
+          <CodeBlock code={npmImportCode} />
+          <CodeBlock code={npmRenderCode} />
+        </>
+      ),
+    },
+    {
+      key: "2",
+      label: "Javascript",
+      children: (
+        <>
+          <CodeBlock code={scriptConfigCode} />
+          <CodeBlock code={scriptRenderCode} />
+        </>
+      ),
+    },
+  ];
+
   return (
     <>
-      <Header>Figment Elements Demo</Header>
+      <Header>
+        <h3>Figment Elements Demo</h3>
+      </Header>
       <Container>
         <Left>
           <LeftWrapper>
-            <SectionHeader>NPM Initialization</SectionHeader>
-            <CodeBlock code={npmImportCode} />
-            <CodeBlock code={npmRenderCode} />
-            <SectionHeader>Script Initialization</SectionHeader>
-            <CodeBlock code={scriptConfigCode} />
-            <CodeBlock code={scriptRenderCode} />
+            <Markdown remarkPlugins={[remarkGfm]}>{markdown}</Markdown>
+            <Tabs defaultActiveKey="1" items={items} />;
           </LeftWrapper>
         </Left>
         <Right>
@@ -129,20 +164,18 @@ const Container = styled.div`
 `;
 
 const Left = styled.div`
-  width: 50%;
-  padding-top: 40px;
-  background-color: #eee;
-  padding: 40px 0;
+  width: 43%;
+  border-right: solid #ccc 1px;
+  padding-top: 20px;
 `;
 
 const LeftWrapper = styled.div`
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 `;
 
 const Right = styled.div`
-  width: 50%;
-  background-color: #ddd;
+  width: 57%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,9 +193,15 @@ const DappContainer = styled.div`
   margin-top: 40px;
 `;
 
-const Header = styled.h1`
+const Header = styled.div`
   font-size: 32px;
+  display: flex;
+  height: 80px;
   text-align: center;
+  border-bottom: solid 1px #ccc;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
 `;
 
 const SectionHeader = styled.h2`
