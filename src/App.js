@@ -61,29 +61,6 @@ function App() {
     };
   }, []);
 
-  const items = [
-    {
-      key: "1",
-      label: "React",
-      children: (
-        <>
-          <CodeBlock code={npmImportCode} />
-          <CodeBlock code={npmRenderCode} />
-        </>
-      ),
-    },
-    {
-      key: "2",
-      label: "Javascript",
-      children: (
-        <>
-          <CodeBlock code={scriptConfigCode} />
-          <CodeBlock code={scriptRenderCode} />
-        </>
-      ),
-    },
-  ];
-
   return (
     <>
       <Header>
@@ -92,15 +69,12 @@ function App() {
       <Container>
         <Left>
           <LeftWrapper>
-            <Markdown remarkPlugins={[remarkGfm]}>{markdown}</Markdown>
-            <Tabs defaultActiveKey="1" items={items} />;
+            <StakingContainer>
+              <Staking />
+            </StakingContainer>
           </LeftWrapper>
         </Left>
         <Right>
-          <SectionHeader>Output</SectionHeader>
-          <StakingContainer>
-            <Staking />
-          </StakingContainer>
           <DappContainer>
             <Dapp />
           </DappContainer>
@@ -109,52 +83,6 @@ function App() {
     </>
   );
 }
-
-const npmImportCode = `import { Staking, Dapp } from "figment-elements";`;
-const npmRenderCode = `<div /* Add any custom styling necessary here */>
-  <Staking />
-</div>
-
-...
-
-<div /* Add any custom styling necessary here */>
-  <Dapp />
-</div>`;
-const scriptConfigCode = `React.useEffect(() => {
-  window.FIGMENT_ELEMENTS_CONFIG = {
-    elements: [
-      {
-        containerSelector: "#figment-elements-staking-container",
-        element: "STAKING",
-      },
-      {
-        containerSelector: "#figment-elements-dapp-container",
-        element: "DAPP",
-      },
-    ],
-  };
-
-  const script = document.createElement("script");
-  script.src = "https://dapp.figment.io/elements";
-  script.type = "text/javascript";
-
-  document.body.appendChild(script);
-
-  return () => {
-    document.body.removeChild(script);
-  };
-}, []);`;
-const scriptRenderCode = `<div
-  id="figment-elements-staking-container"
-  /* Add any custom styling necessary here */
-/>
-
-...
-
-<div
-  id="figment-elements-dapp-container"
-  /* Add any custom styling necessary here */
-/>`;
 
 export default App;
 
@@ -190,7 +118,6 @@ const StakingContainer = styled.div`
 const DappContainer = styled.div`
   width: 800px;
   height: 800px;
-  margin-top: 40px;
 `;
 
 const Header = styled.div`
