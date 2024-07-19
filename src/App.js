@@ -1,33 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { CopyBlock, dracula } from "react-code-blocks";
 import { Staking, Dapp } from "figment-elements";
-import { Tabs } from "antd";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-
-const markdown = `
-## Staking widget or full Dapp
-  You can either import:
-  - the **staking widget** (the UI component that handles the ETH stakign process), or
-  - the **full dapp**, which in addition to the staking widget includes:
-    - the staking activity (log of every staking and unstaking action
-    - a rewards tab with total stake, all time rewards and a chart of rewards over time
-
-## Options for importing
-`;
-
-function CodeBlock({ code }) {
-  return (
-    <CopyBlock
-      customStyle={{ marginTop: "20px", padding: "20px 0", fontSize: "12px" }}
-      text={code}
-      language={"ts"}
-      theme={dracula}
-      showLineNumbers
-    />
-  );
-}
 
 function App() {
   React.useEffect(() => {
@@ -68,13 +41,13 @@ function App() {
       </Header>
       <Container>
         <Left>
-          <LeftWrapper>
-            <StakingContainer>
-              <Staking />
-            </StakingContainer>
-          </LeftWrapper>
+          <SectionHeader>Staking Widget</SectionHeader>
+          <StakingContainer>
+            <Staking />
+          </StakingContainer>
         </Left>
         <Right>
+          <SectionHeader>Full Dapp</SectionHeader>
           <DappContainer>
             <Dapp />
           </DappContainer>
@@ -94,12 +67,10 @@ const Container = styled.div`
 const Left = styled.div`
   width: 43%;
   border-right: solid #ccc 1px;
-  padding-top: 20px;
-`;
-
-const LeftWrapper = styled.div`
-  width: 90%;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
 `;
 
 const Right = styled.div`
@@ -107,7 +78,7 @@ const Right = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 0;
+  padding: 20px 0;
 `;
 
 const StakingContainer = styled.div`

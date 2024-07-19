@@ -30,10 +30,10 @@ import { Staking, Dapp } from "figment-elements";
 
 <div /* Add any custom styling necessary here */>
   <Dapp />
-</div>`
+</div>
 ```
 
-## Using plain Javascript
+## Using plain JavaScript
 
 ```jsx
 React.useEffect(() => {
@@ -59,9 +59,11 @@ React.useEffect(() => {
   return () => {
     document.body.removeChild(script);
   };
-}, []);`;
+}, []);
 
-const scriptRenderCode = `<div
+...
+
+<div
   id="figment-elements-staking-container"
   /* Add any custom styling necessary here */
 />
@@ -74,7 +76,7 @@ const scriptRenderCode = `<div
 />
 ```
 
-# Getting Started
+# Running This Demo App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
