@@ -3,37 +3,6 @@ import styled from "styled-components";
 import { Staking, Dapp } from "figment-elements";
 
 function App() {
-  React.useEffect(() => {
-    window.process = {
-      env: {
-        PLACEHOLDER: "placeholder",
-      },
-    };
-
-    window.FIGMENT_ELEMENTS_CONFIG = {
-      elements: [
-        {
-          containerSelector: "#figment-elements-staking-container",
-          element: "STAKING",
-        },
-        {
-          containerSelector: "#figment-elements-dapp-container",
-          element: "DAPP",
-        },
-      ],
-    };
-
-    const script = document.createElement("script");
-    script.src = "https://dapp.figment.io/elements";
-    script.type = "text/javascript";
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <>
       <Header>
