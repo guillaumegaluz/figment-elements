@@ -1,78 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Staking, Dapp } from "figment-elements";
+import { Radio } from "antd";
+import { GithubOutlined } from "@ant-design/icons";
+
+const options = [
+  { label: "Staking Widget Only", value: "staking" },
+  { label: "Full Dapp", value: "dapp" },
+];
 
 function App() {
+  const [value, setValue] = useState("staking");
+
+  const onChange = ({ target: { value } }) => {
+    setValue(value);
+  };
+
   return (
-    <>
-      <Header>
-        <h3>Figment Elements Demo</h3>
-      </Header>
-      <Container>
-        <Left>
-          <SectionHeader>Staking Widget</SectionHeader>
-          <StakingContainer>
-            <Staking />
-          </StakingContainer>
-        </Left>
-        <Right>
-          <SectionHeader>Full Dapp</SectionHeader>
-          <DappContainer>
-            <Dapp />
-          </DappContainer>
-        </Right>
-      </Container>
-    </>
+    <Container>
+      <Title>Figment Elements</Title>
+      <Subtitle>
+        {`UI components to enable staking experience. `}
+        <Link
+          href="https://github.com/guillaumegaluz/figment-elements"
+          target="_blank"
+        >
+          View on <GithubOutlined />
+        </Link>
+      </Subtitle>
+      <Toggle
+        options={options}
+        onChange={onChange}
+        value={value}
+        optionType="button"
+        buttonStyle="solid"
+        size="large"
+      />
+      {value === "staking" ? (
+        <StakingContainer>
+          <Staking />
+        </StakingContainer>
+      ) : (
+        <DappContainer>
+          <Dapp />
+        </DappContainer>
+      )}
+    </Container>
   );
 }
 
 export default App;
 
 const Container = styled.div`
-  display: flex;
   min-height: 100vh;
-`;
-
-const Left = styled.div`
-  width: 43%;
   background-color: #eee;
-  border-right: solid #111 2px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0;
-`;
-
-const Right = styled.div`
-  width: 57%;
-  background-color: #eee;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0;
-`;
-
-const StakingContainer = styled.div`
-  width: 380px;
-  height: 409px;
-`;
-
-const DappContainer = styled.div`
-  width: 800px;
-  height: 800px;
-`;
-
-const Header = styled.div`
-  font-size: 32px;
-  display: flex;
-  height: 80px;
   text-align: center;
-  border-bottom: solid #111 2px;
   justify-content: center;
   align-items: center;
 `;
 
-const SectionHeader = styled.h2`
-  font-size: 24px;
-  margin-bottom: 40px;
+const Title = styled.div`
+  font-size: 30px;
+  font-weight: 600;
+  padding-top: 30px;
+`;
+
+const Subtitle = styled.div`
+  font-size: 20px;
+  padding: 30px 0;
+`;
+
+const Link = styled.a`
+  color: #1677ff;
+  text-decoration: none;
+`;
+
+const Toggle = styled(Radio.Group)`
+  margin-bottom: 80px;
+`;
+
+const StakingContainer = styled.div`
+  width: 350px;
+  height: 400px;
+  margin: 0 auto;
+  border: solid 1px #ccc;
+`;
+
+const DappContainer = styled.div`
+  width: 500px;
+  height: 800px;
+  margin: 0 auto;
+  border: solid 1px #ccc;
 `;
