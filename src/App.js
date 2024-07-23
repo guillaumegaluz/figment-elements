@@ -35,7 +35,8 @@ const Container = styled.div`
 
 const Left = styled.div`
   width: 43%;
-  border-right: solid #ccc 1px;
+  background-color: #eee;
+  border-right: solid #111 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,6 +45,7 @@ const Left = styled.div`
 
 const Right = styled.div`
   width: 57%;
+  background-color: #eee;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,12 +67,12 @@ const Header = styled.div`
   display: flex;
   height: 80px;
   text-align: center;
-  border-bottom: solid 1px #ccc;
+  border-bottom: solid #111 2px;
   justify-content: center;
   align-items: center;
-  background-color: #eee;
 `;
 
 const SectionHeader = styled.h2`
   font-size: 24px;
+  margin-bottom: 40px;
 `;
