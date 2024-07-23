@@ -1,21 +1,27 @@
-# Figment Elements
+# Figment Elements - UI components for embeddable staking
 
-You can either import the staking widget only or the full Dapp.
+We build Figment Elements to help you integrate staking in a matter of minutes, without the need for API integration or UI work.
 
-### Staking Widget
+<img width="600" alt="Screenshot 2024-07-23 at 16 20 20" src="https://github.com/user-attachments/assets/7ef09ed5-6d68-4fe4-bb06-d6c2f32366a0">
 
-It's the UI component that handles the ETH staking process: connect a wallet, pick an amount, create validators, sign a staking transaction, broadcast it.
+## Features
+- ETH full validators staking (multiples of 32 ETH)
+- WalletConnect Web3Modal
+- Staking widget or full dapp (incl. activity, positions, rewards)
 
-### Full Dapp
-
-In addition to the staking widget it includes:
-
-- the staking activity: log of every staking action
-- a rewards tab with staked amount, all time rewards and a chart of rewards over time
+## Coming soon
+- More protocols (Solana, Babylon, EIGEN)
+- Custom wallet integration
+- EigenLayer
+- Customer styling
 
 # Usage
 
-## Using React
+```
+yarn add figment-elements
+```
+
+### Using React
 
 ```jsx
 import { Staking, Dapp } from "figment-elements";
@@ -76,7 +82,7 @@ React.useEffect(() => {
 />
 ```
 
-# Running This Demo App
+# Run
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
