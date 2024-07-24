@@ -1,5 +1,7 @@
 # Figment Elements - UI components for embeddable staking
 
+[figment-elements.vercel.app/](https://figment-elements.vercel.app/)
+
 We build Figment Elements to help you integrate staking in a matter of minutes, without the need for API integration or UI work.
 
 <img width="600" alt="Screenshot 2024-07-23 at 16 20 20" src="https://github.com/user-attachments/assets/7ef09ed5-6d68-4fe4-bb06-d6c2f32366a0">
