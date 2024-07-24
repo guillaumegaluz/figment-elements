@@ -20,7 +20,7 @@ function App() {
     <Container>
       <Title>Figment Elements</Title>
       <Subtitle>
-        {`UI components to enable staking experience. `}
+        {`UI components for embeddable staking. `}
         <Link
           href="https://github.com/guillaumegaluz/figment-elements"
           target="_blank"
