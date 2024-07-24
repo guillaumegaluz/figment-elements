@@ -76,18 +76,19 @@ const Link = styled.a`
 `;
 
 const Toggle = styled(Radio.Group)`
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 `;
 
 const StakingContainer = styled.div`
   width: 350px;
   height: 450px;
   margin: 0 auto;
+  // border: solid 1px #ccc;
 `;
 
 const DappContainer = styled.div`
-  width: 500px;
+  width: 700px;
   height: 800px;
   margin: 0 auto;
-  border: solid 1px #ccc;
+  // border: solid 1px #ccc;
 `;
