@@ -76,7 +76,7 @@ const Link = styled.a`
 `;
 
 const Toggle = styled(Radio.Group)`
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 `;
 
 const StakingContainer = styled.div`
