@@ -81,9 +81,8 @@ const Toggle = styled(Radio.Group)`
 
 const StakingContainer = styled.div`
   width: 350px;
-  height: 400px;
+  height: 450px;
   margin: 0 auto;
-  border: solid 1px #ccc;
 `;
 
 const DappContainer = styled.div`
