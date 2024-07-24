@@ -87,7 +87,7 @@ const StakingContainer = styled.div`
 `;
 
 const DappContainer = styled.div`
-  width: 500px;
+  width: 700px;
   height: 800px;
   margin: 0 auto;
   // border: solid 1px #ccc;
